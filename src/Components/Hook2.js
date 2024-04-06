@@ -6,6 +6,7 @@ const Hook2 = () => {
     const [modal, setModal] = useState(false);
 
     const toggle = () => setModal(!modal);
+
     return (
         <div>
             <Button color="danger" onClick={toggle}>

@@ -15,16 +15,16 @@ import {
 } from 'reactstrap';
 
 const FloatingLabels = () => {
-    const [isOpen, setIsOpen] = useState(false);
 
-    const toggle = () => setIsOpen(!isOpen);
+    const [collapse, SetCollapse] = useState(true);
+    const toggleNavbar = () => SetCollapse(!collapse)
 
     return (
         <div>
-            <Navbar>
+            <Navbar color='faded' light expand='sm'>
                 <NavbarBrand href="/">reactstrap</NavbarBrand>
-                <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isOpen} navbar>
+                <NavbarToggler onClick={toggleNavbar} className='me-2' />
+                <Collapse isOpen={!collapse} navbar>
                     <Nav className="me-auto" navbar>
                         <NavItem>
                             <NavLink href="/components/">Components</NavLink>
@@ -33,8 +33,15 @@ const FloatingLabels = () => {
                             <NavLink href="https://github.com/reactstrap/reactstrap">
                                 GitHub
                             </NavLink>
+                        </NavItem>
+                        <NavItem>
                             <NavLink href="#">
                                 Home
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="#">
+                                Product
                             </NavLink>
                         </NavItem>
                         <UncontrolledDropdown nav inNavbar>
@@ -53,7 +60,7 @@ const FloatingLabels = () => {
                 </Collapse>
             </Navbar>
         </div>
-    )
+    );
 }
 
 export default FloatingLabels
